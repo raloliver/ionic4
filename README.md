@@ -1,6 +1,8 @@
 # With React
 
-
+- App.tsx
+- React.FC (function component)
+- React Hooks
 
 ### TSX
 
