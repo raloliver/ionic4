@@ -1,0 +1,7 @@
+{
+  "name": "ionrc-menu",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "react"
+}

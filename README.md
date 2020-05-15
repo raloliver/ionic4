@@ -1,8 +1,10 @@
 # With React
 
 - App.tsx
-- React.FC (function component)
+- `React.FC` (function component)
 - React Hooks
+- `RouteComponentProps`
+- `ContainerProps`
 
 ### TSX
 
