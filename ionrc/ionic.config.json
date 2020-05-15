@@ -1,0 +1,7 @@
+{
+  "name": "ionrc",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "react"
+}
