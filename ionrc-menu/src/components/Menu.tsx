@@ -12,7 +12,7 @@ import {
 
 import React from 'react';
 import { useLocation } from 'react-router-dom';
-import { archiveOutline, archiveSharp, bookmarkOutline, heartOutline, heartSharp, mailOutline, mailSharp, paperPlaneOutline, paperPlaneSharp, trashOutline, trashSharp, warningOutline, warningSharp } from 'ionicons/icons';
+import { archiveOutline, archiveSharp, bookmarkOutline, heartOutline, heartSharp, mailOutline, mailSharp, paperPlaneOutline, paperPlaneSharp, trashOutline, trashSharp, warningOutline, warningSharp, sendOutline, sendSharp } from 'ionicons/icons';
 import './Menu.css';
 
 interface AppPage {
@@ -34,6 +34,12 @@ const appPages: AppPage[] = [
     url: '/page/Outbox',
     iosIcon: paperPlaneOutline,
     mdIcon: paperPlaneSharp
+  },
+  {
+    title: 'Sent',
+    url: '/page/setn',
+    iosIcon: sendOutline,
+    mdIcon: sendSharp
   },
   {
     title: 'Favorites',
