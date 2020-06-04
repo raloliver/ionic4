@@ -1,4 +1,4 @@
-import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonCard, IonCardHeader, IonCardSubtitle, IonCardTitle, IonCardContent, IonRouterLink } from '@ionic/react';
+import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonCard, IonCardHeader, IonCardSubtitle, IonCardTitle, IonCardContent, IonRouterLink, IonButtons, IonMenuButton } from '@ionic/react';
 import React from 'react';
 
 const Home: React.FC = () => {
@@ -6,6 +6,9 @@ const Home: React.FC = () => {
     <IonPage>
       <IonHeader>
         <IonToolbar>
+          <IonButtons>
+            <IonMenuButton />
+          </IonButtons>
           <IonTitle>Início</IonTitle>
         </IonToolbar>
       </IonHeader>

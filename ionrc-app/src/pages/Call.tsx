@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { IonPage, IonHeader, IonToolbar, IonTitle, IonContent, IonList, IonItemSliding, IonIcon, IonLabel, IonItem, IonItemOptions, IonItemOption, IonActionSheet, IonButtons, IonButton, IonAlert, IonToast } from '@ionic/react';
+import { IonPage, IonHeader, IonToolbar, IonTitle, IonContent, IonList, IonItemSliding, IonIcon, IonLabel, IonItem, IonItemOptions, IonItemOption, IonActionSheet, IonButtons, IonButton, IonAlert, IonToast, IonMenuButton } from '@ionic/react';
 import { personOutline, eye, eyeOffOutline, trash, close, ellipsisHorizontalOutline, chevronForwardOutline } from 'ionicons/icons';
 import { useStudents, Presence, Student } from '../hooks/student.hook';
 import './Call.css';
@@ -28,6 +28,9 @@ const Call: React.FC = () => {
         <IonPage>
             <IonHeader>
                 <IonToolbar>
+                    <IonButtons>
+                        <IonMenuButton />
+                    </IonButtons>
                     <IonTitle>Chamada de Presença</IonTitle>
                 </IonToolbar>
             </IonHeader>
@@ -54,9 +57,9 @@ const Call: React.FC = () => {
                                         <IonButton onClick={() => clickStudent(student)}>
                                             <IonIcon slot="icon-only" icon={ellipsisHorizontalOutline}></IonIcon>
                                         </IonButton>
-                                        <IonButton>
+                                        {/* <IonButton>
                                             <IonIcon slot="icon-only" icon={chevronForwardOutline}></IonIcon>
-                                        </IonButton>
+                                        </IonButton> */}
                                     </IonButtons>
                                 </IonItem>
                                 <IonItemOptions side="end" onIonSwipe={() => { student.status = Presence.Present; setSelectedStudent(initialStudent); }}>
