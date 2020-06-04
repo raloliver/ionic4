@@ -32,7 +32,7 @@ const Call: React.FC = () => {
                         return (
                             <IonItemSliding key={student.id}>
                                 <IonItemOptions side="start">
-                                    <IonItemOption color="danger">Ausente</IonItemOption>
+                                    <IonItemOption color="danger" onClick={() => student.status = Presence.Absent}>Ausente</IonItemOption>
                                 </IonItemOptions>
                                 <IonItem>
                                     <IonIcon slot="start" icon={personOutline}></IonIcon>
@@ -55,7 +55,7 @@ const Call: React.FC = () => {
                                     </IonButtons>
                                 </IonItem>
                                 <IonItemOptions side="end">
-                                    <IonItemOption>Presente</IonItemOption>
+                                    <IonItemOption onClick={() => student.status = Presence.Present}>Presente</IonItemOption>
                                 </IonItemOptions>
                             </IonItemSliding>
                         )
