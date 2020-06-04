@@ -16,3 +16,7 @@
 
 - `ionic start`: to start a new project
 - `ionic serve`: to run
+
+### REACT HOOKS
+
+- 
