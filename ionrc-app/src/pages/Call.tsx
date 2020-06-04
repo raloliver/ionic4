@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { IonPage, IonHeader, IonToolbar, IonTitle, IonContent, IonList, IonItemSliding, IonIcon, IonLabel, IonItem, IonItemOptions, IonItemOption, IonActionSheet, IonButtons, IonButton, IonAlert } from '@ionic/react';
+import { IonPage, IonHeader, IonToolbar, IonTitle, IonContent, IonList, IonItemSliding, IonIcon, IonLabel, IonItem, IonItemOptions, IonItemOption, IonActionSheet, IonButtons, IonButton, IonAlert, IonToast } from '@ionic/react';
 import { personOutline, eye, eyeOffOutline, trash, close, ellipsisHorizontalOutline, chevronForwardOutline } from 'ionicons/icons';
 import { useStudents, Presence, Student } from '../hooks/student.hook';
 import './Call.css';
@@ -10,9 +10,11 @@ const Call: React.FC = () => {
     const [selectedStudent, setSelectedStudent] = useState(initialStudent);
     const [students, setStudents] = useStudents();
     const [showDeleteAlert, setShowDeleteAlert] = useState(false);
+    const [showDeleteToast, setShowDeleteToast] = useState(false);
 
     const deleteStudent = (student: Student) => {
         setStudents(students.filter(res => res.id !== student.id));
+        setShowDeleteToast(true);
     }
 
     const clickStudent = (student: Student) => {
@@ -107,6 +109,14 @@ const Call: React.FC = () => {
                             }
                         }
                     ]} />
+                <IonToast
+                    isOpen={showDeleteToast}
+                    onDidDismiss={() => setShowDeleteToast(false)}
+                    message="Aluno excluído com sucesso."
+                    duration={1500}
+                    position="top"
+                    color="warning"
+                />
             </IonContent>
         </IonPage>
     )
