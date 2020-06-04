@@ -18,8 +18,8 @@ const Home: React.FC = () => {
             <IonCardTitle>Escola BLIV</IonCardTitle>
           </IonCardHeader>
           <IonCardContent>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum natus a suscipit ipsam fugiat impedit numquam fuga nobis magni quia, delectus expedita molestias, voluptas aut eveniet quas autem. Culpa, natus.</p>
-            <IonRouterLink href="/call" routerDirection="forward">Detalhes</IonRouterLink>
+            <p>Aplicativo ilustrativo de comos seria uma lista de chamadas. Claro que o ideial seria ter uma gravação dos dias em outro menu como recurso, mas isso fica pra próxima.</p>
+            <IonRouterLink href="/call" routerDirection="forward">Realizar chamada</IonRouterLink>
           </IonCardContent>
         </IonCard>
       </IonContent>
