@@ -5,12 +5,14 @@ import { useStudents, Presence, Student } from '../hooks/student.hook';
 import './Call.css';
 
 const Call: React.FC = () => {
+
     const initialStudent: Student = { id: 0, firstName: "", lastName: "" };
 
     const [selectedStudent, setSelectedStudent] = useState(initialStudent);
     const [students, setStudents] = useStudents();
     const [showDeleteAlert, setShowDeleteAlert] = useState(false);
     const [showDeleteToast, setShowDeleteToast] = useState(false);
+    const [showActionSheet, setShowActionSheet] = useState(false);
 
     const deleteStudent = (student: Student) => {
         setStudents(students.filter(res => res.id !== student.id));
@@ -19,6 +21,7 @@ const Call: React.FC = () => {
 
     const clickStudent = (student: Student) => {
         setSelectedStudent(student);
+        setShowActionSheet(true);
     }
 
     return (
@@ -33,8 +36,8 @@ const Call: React.FC = () => {
                     {students.map((student) => {
                         return (
                             <IonItemSliding key={student.id}>
-                                <IonItemOptions side="start">
-                                    <IonItemOption color="danger" onClick={() => student.status = Presence.Absent}>Ausente</IonItemOption>
+                                <IonItemOptions side="start" onIonSwipe={() => { student.status = Presence.Absent; setSelectedStudent(initialStudent); }}>
+                                    <IonItemOption color="danger" onClick={() => { student.status = Presence.Absent; setSelectedStudent(initialStudent); }}>Ausente</IonItemOption>
                                 </IonItemOptions>
                                 <IonItem>
                                     <IonIcon slot="start" icon={personOutline}></IonIcon>
@@ -56,15 +59,15 @@ const Call: React.FC = () => {
                                         </IonButton>
                                     </IonButtons>
                                 </IonItem>
-                                <IonItemOptions side="end">
-                                    <IonItemOption onClick={() => student.status = Presence.Present}>Presente</IonItemOption>
+                                <IonItemOptions side="end" onIonSwipe={() => { student.status = Presence.Present; setSelectedStudent(initialStudent); }}>
+                                    <IonItemOption onClick={() => { student.status = Presence.Present; setSelectedStudent(initialStudent); }}>Presente</IonItemOption>
                                 </IonItemOptions>
                             </IonItemSliding>
                         )
                     })}
                 </IonList>
                 <IonActionSheet
-                    isOpen={!!selectedStudent.id}
+                    isOpen={!!selectedStudent.id && showActionSheet}
                     header={`${selectedStudent.firstName} ${selectedStudent.lastName}`}
                     onDidDismiss={() => setSelectedStudent(initialStudent)}
                     buttons={[{
